@@ -1,0 +1,55 @@
+data_root: /root/autodl-tmp/ml/dataset/miniImageNet--ravi
+image_size: 84
+# use_memory: False
+# augment: True
+# augment_times: 1
+# augment_times_query: 1
+workers: 16
+dataloader_num: 1
+augment: True
+# augment_method: DeepEmdAug
+
+backbone:
+  name: resnet12emd
+  kwargs: ~
+
+batch_size: 128
+classifier:
+  name: DeepEMD
+  num_classes: 64
+  kwargs: 
+    mode: pre_train
+    args:
+      dsy: 1105
+      way: 5
+      shot: 1
+      query: 16
+      deepemd: fcn
+      solver: opencv
+      feature_pyramid: 5,2,1
+      pretrain: nothing
+      bs: 128
+      temperature: 12.5
+
+way_num: 5
+shot_num: 1
+query_num: 16
+
+optimizer:
+  name: SGD
+  kwargs:
+    lr: 0.1
+    momentum: 0.9
+    weight_decay: 0.0005
+    nesterov: True
+
+train_episode: 600
+test_episode: 200
+episode_size: 1
+epoch: 120
+
+lr_scheduler:
+  kwargs:
+    gamma: 0.2
+    step_size: 30
+  name: StepLR
