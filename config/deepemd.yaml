@@ -7,7 +7,9 @@ image_size: 84
 workers: 16
 dataloader_num: 1
 augment: True
-augment_method: DeepEmdAug
+# augment_method: DeepEmdAug
+
+pretrain_path: /root/autodl-tmp/dsy/results/DeepEMD_Pretrain-miniImageNet--ravi-resnet12emd-5-1-Dec-31-2023-10-22-13/checkpoints/emb_func_best.pth
 
 backbone:
   name: resnet12emd
@@ -26,15 +28,18 @@ classifier:
       deepemd: fcn
       solver: opencv
       feature_pyramid: 5,2,1
+      pretrain: self
+      temperature: 12.5
 
 way_num: 5
 shot_num: 1
 query_num: 16
+epoch: 100
 
 optimizer:
   name: SGD
   kwargs:
-    lr: 0.05
+    lr: 0.0005
     momentum: 0.9
     weight_decay: 0.0005
     nesterov: True
@@ -48,3 +53,4 @@ lr_scheduler:
     gamma: 0.5
     step_size: 10
   name: StepLR
+

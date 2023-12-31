@@ -24,7 +24,8 @@ class DeepEMDLayer(nn.Module):
 
         self.encoder = resnet12emd
 
-        print('self.args.pretrain:', self.args.pretrain)
+        print('self.args.pretrain:')
+        print(self.args.pretrain)
 
         if self.args.pretrain == 'origin':
             # 打印encoder的state_dict的keys
@@ -291,7 +292,8 @@ class DeepEMD(MetricModel):
         self.args.query = args.get('query', 16)
         self.args.pretrain = args.get('pretrain', 'origin')
 
-        print('self.args.pretrain:', self.args.pretrain)
+        # print('self.args.pretrain:', self.args.pretrain)
+        # 使用logger
 
         self.mode = mode
 

@@ -204,6 +204,9 @@ class Test(object):
 
         # Hack print
         def use_logger(msg, level="info"):
+            # 打印
+            # print(msg)
+            # print(level)
             if self.rank != 0:
                 return
             if level == "info":
@@ -211,7 +214,9 @@ class Test(object):
             elif level == "warning":
                 self.logger.warning(msg)
             else:
-                raise ("Not implemente {} level log".format(level))
+                # raise ("Not implemente {} level log".format(level))
+                # tag：修改
+                raise NotImplementedError("Not implemented {} level log".format(level))
 
         builtins.print = use_logger
 
