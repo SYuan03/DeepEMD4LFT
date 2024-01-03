@@ -8,7 +8,7 @@ import sys
 sys.dont_write_bytecode = True
 
 
-PATH = "/root/autodl-tmp/dsy/results/DeepEMD-miniImageNet--ravi-resnet12emd-5-1-Dec-31-2023-13-58-28"
+PATH = "/root/autodl-tmp/dsy/results/DeepEMD-miniImageNet--ravi-resnet12emd-5-1-Dec-31-2023-15-35-46"
 VAR_DICT = {
     "test_epoch": 5,
     "device_ids": "0",
