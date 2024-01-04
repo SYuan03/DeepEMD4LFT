@@ -43,7 +43,7 @@ optimizer:
     weight_decay: 0.0005
     nesterov: True
 
-train_episode: 1000
+train_episode: 50
 test_episode: 400
 episode_size: 1
 
