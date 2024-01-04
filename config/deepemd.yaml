@@ -21,7 +21,6 @@ classifier:
   kwargs: 
     mode: meta
     args:
-      dsy: 1105
       way: 5
       shot: 1
       query: 16

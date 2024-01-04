@@ -8,7 +8,7 @@ import os
 from core.config import Config
 from core import Trainer
 
-PATH = "/root/autodl-tmp/dsy/results/DeepEMD-miniImageNet--ravi-resnet12emd-5-1-Dec-30-2023-02-21-41"
+PATH = "/your_path/results/DeepEMD-miniImageNet--ravi-resnet12emd-5-1-Dec-30-2023-02-21-41"
 
 
 def main(rank, config):

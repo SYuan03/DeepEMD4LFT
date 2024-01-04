@@ -108,7 +108,7 @@ class CategoriesSampler(Sampler):
                 pos = torch.randperm(idxes.size(0))[: self.image_num]
                 batch.append(idxes[pos])
             if len(batch) == self.episode_size * self.way_num:
-                batch = torch.stack(batch).reshape(-1)
+                batch = torch.stack(batch).t().reshape(-1)
                 yield batch
                 batch = []
 
@@ -191,7 +191,7 @@ class DistributedCategoriesSampler(Sampler):
                 ]
                 batch.append(idxes[pos])
             if len(batch) == self.episode_size * self.way_num:
-                batch = torch.stack(batch).reshape(-1)
+                batch = torch.stack(batch).t().reshape(-1)
                 yield batch
                 batch = []
 

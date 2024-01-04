@@ -327,6 +327,8 @@ class DeepEMD(MetricModel):
 
         data = new_data.to(self.device)
 
+        data =data.to(self.device)
+
         # print('set_forward_loss')
         # print('way:', self.args.way)
         # print('shot:', self.args.shot)
@@ -334,11 +336,6 @@ class DeepEMD(MetricModel):
 
         self.deepemd_layer.mode = 'encoder'
         data = self.deepemd_layer(data)
-
-        # print('batch.image:', batch.image)
-        # print('batch.image.shape:', batch.image.shape)
-        # print('batch.label:', batch.label)
-        # print('batch.label.shape:', batch.label.shape)
 
         data_shot, data_query = data[:k], data[k:]
         self.deepemd_layer.mode = 'meta'
@@ -372,21 +369,23 @@ class DeepEMD(MetricModel):
 
         # key: 重新排列数组
         # 重排数据
-        new_data = torch.empty((data.size(0), data.size(
-            1), data.size(2), data.size(3)), dtype=data.dtype)
+        # new_data = torch.empty((data.size(0), data.size(
+        #     1), data.size(2), data.size(3)), dtype=data.dtype)
 
-        # 重新排列数据
-        for i in range(self.args.way):
-            for j in range(self.args.shot + self.args.query):
-                if j < self.args.shot:
-                    new_index = j * self.args.way + i
-                else:
-                    new_index = self.args.shot * self.args.way + \
-                        (j - self.args.shot) * self.args.way + i
-                new_data[new_index] = data[i *
-                                           (self.args.shot + self.args.query) + j]
+        # # 重新排列数据
+        # for i in range(self.args.way):
+        #     for j in range(self.args.shot + self.args.query):
+        #         if j < self.args.shot:
+        #             new_index = j * self.args.way + i
+        #         else:
+        #             new_index = self.args.shot * self.args.way + \
+        #                 (j - self.args.shot) * self.args.way + i
+        #         new_data[new_index] = data[i *
+        #                                    (self.args.shot + self.args.query) + j]
 
-        data = new_data.to(self.device)
+        # data = new_data.to(self.device)
+
+        data = data.to(self.device)
 
         k = self.args.way * self.args.shot
 

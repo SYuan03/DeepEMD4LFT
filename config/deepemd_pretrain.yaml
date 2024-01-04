@@ -25,7 +25,6 @@ classifier:
     val_num_class: 16
     mode: meta
     args:
-      dsy: 1105
       way: 5
       shot: 1
       query: 16

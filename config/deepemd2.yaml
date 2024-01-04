@@ -20,7 +20,6 @@ classifier:
   kwargs: 
     mode: pre_train
     args:
-      dsy: 1105
       way: 5
       shot: 1
       query: 16
