@@ -6,7 +6,7 @@
 
 ## config
 
-![image-20240103155408993](D:/大学文档/大三上专业课/机器学习/deepemd代码/readme/image-20240103155408993.png) 
+![image-20240103155408993](readme/image-20240103155408993.png) 
 
 deepemd_pretrain.yaml是预训练用的配置文件
 
@@ -18,7 +18,7 @@ deepemd.yaml是使用metric-based训练方法进一步训练的配置文件
 
 deepemd所使用的backbone基本就是resnet12，但是有点细微的区别，因此实现了resnet_emd.py
 
-![image-20240103155637075](D:/大学文档/大三上专业课/机器学习/deepemd代码/readme/image-20240103155637075.png)
+![image-20240103155637075](readme/image-20240103155637075.png)
 
 
 
@@ -179,11 +179,11 @@ class CategoriesSampler(Sampler):
 
 ### 关键部分2：train_classifier
 
-![image-20240103160250859](D:/大学文档/大三上专业课/机器学习/deepemd代码/readme/image-20240103160250859.png)
+![image-20240103160250859](readme/image-20240103160250859.png)
 
 这里的self.train_classifier是实现了源代码中在network里的这部分预训练时期的分类
 
-![image-20240103160428521](D:/大学文档/大三上专业课/机器学习/deepemd代码/readme/image-20240103160428521.png)
+![image-20240103160428521](readme/image-20240103160428521.png)
 
 
 
@@ -195,6 +195,6 @@ class CategoriesSampler(Sampler):
 
 ## 框架代码的修改？
 
-![image-20240103161303523](D:/大学文档/大三上专业课/机器学习/deepemd代码/readme/image-20240103161303523.png)
+![image-20240103161303523](readme/image-20240103161303523.png)
 
 似乎这里有点小问题，不过无伤大雅
